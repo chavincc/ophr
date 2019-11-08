@@ -15,7 +15,17 @@ const initFormData = {
 
 const handleSubmit = formData => {
   // submit formData using submitAPI
-  console.log(formData);
+  //err
+  const {name, email, phone, male} = formData;
+  let nameCheck = (name.length <= 255);
+  let maleCheck = (male === "male" || male === "female");
+  let emailCheck, phoneCheck;
+  if (nameCheck && maleCheck && emailCheck && phoneCheck)
+    api.submitAPI(formData);
+  }
+  else {
+    formReducer();
+  }
 };
 
 const $ = id => document.getElementById(id);
